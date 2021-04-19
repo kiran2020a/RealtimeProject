@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:batch="http://www.mulesoft.org/schema/mule/batch" xmlns:file="http://www.mulesoft.org/schema/mule/file"
+	xmlns:sftp="http://www.mulesoft.org/schema/mule/sftp"
+	xmlns:crypto="http://www.mulesoft.org/schema/mule/crypto" xmlns:os="http://www.mulesoft.org/schema/mule/os" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/os http://www.mulesoft.org/schema/mule/os/current/mule-os.xsd
+http://www.mulesoft.org/schema/mule/crypto http://www.mulesoft.org/schema/mule/crypto/current/mule-crypto.xsd
+http://www.mulesoft.org/schema/mule/sftp http://www.mulesoft.org/schema/mule/sftp/current/mule-sftp.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd
+http://www.mulesoft.org/schema/mule/batch http://www.mulesoft.org/schema/mule/batch/current/mule-batch.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="ca2bf42a-495b-424f-ad98-c31aec2d5b8c" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<os:object-store name="test_os" doc:name="Object store" doc:id="a33cac02-5af4-411b-9d5c-0323ee05b36a" maxEntries="100" entryTtl="5" entryTtlUnit="HOURS" />
+	<file:config name="File_Config" doc:name="File Config" doc:id="6ff6fa1c-1dcf-461a-9d72-20f274eab4d7" />
+	<flow name="foreachFlow" doc:id="3be2c1a7-2d79-429d-a5ac-4c024a05e346" >
+		<http:listener doc:name="Listener" doc:id="6943ff61-f763-4e02-a224-b15b50fdadc4" config-ref="HTTP_Listener_config" path="/foreach"/>
+		<os:store doc:name="Store" doc:id="80568024-dec8-4dd9-b044-7413fa3f6e73" key='#[now () as String {format:"YYYYMMDDHHMMSS"}]' objectStore="test_os"/>
+		<foreach doc:name="For Each" doc:id="369ccf50-5360-4efd-aa13-190ee4e3853c" >
+			<flow-ref doc:name="Flow Reference" doc:id="ec067cea-7771-4264-a391-d58d9afe0b88" name="foreachSub_Flow" />
+		</foreach>
+	</flow>
+	<flow name="parallelforeach" doc:id="39726078-9a1f-46a9-a234-54c3db847acf" >
+		<http:listener doc:name="Listener" doc:id="313f2b65-1add-4740-b503-e3bf1dfe40fe" config-ref="HTTP_Listener_config" path="/parallel"/>
+		<parallel-foreach doc:name="Parallel For Each" doc:id="6b11e946-2988-40aa-bd42-37c5002dab78" >
+			<flow-ref doc:name="Flow Reference" doc:id="e17e98b3-90e6-4d8f-ba5e-bfa9045e9928" name="foreachSub_Flow" />
+		</parallel-foreach>
+		<batch:job jobName="foreachBatch_Job" doc:id="44ec8a0d-b946-4833-8dc6-95fad69e393e" >
+			<batch:process-records >
+				<batch:step name="Batch_Step" doc:id="76602fec-ae7a-425d-be08-96d7af8336e2" >
+					<set-variable value="" doc:name="Set Variable" doc:id="f991a912-e640-47dd-8ee7-a82eec39fbba" variableName="bjv"/>
+					<batch:aggregator doc:name="Batch Aggregator" doc:id="01ef27c1-3420-4248-9a41-f35490005b7e" size="1000">
+						<set-payload value="#[payload]" doc:name="Set Payload" doc:id="ca688fd3-e69f-4a17-a05c-2123bddf5d5f" />
+					</batch:aggregator>
+				</batch:step>
+			</batch:process-records>
+		</batch:job>
+	</flow>
+	<sub-flow name="foreachSub_Flow" doc:id="8c663663-cdc9-48ef-80eb-fa66c5444a49" >
+		<logger level="INFO" doc:name="Logger" doc:id="35b515f9-f548-4438-9059-50a76b89d392" message="#[payload]"/>
+		<file:read doc:id="0475fcde-70d2-4af3-a857-43802efe017f" config-ref="File_Config" path="E:\mule\Git\input\SalesJan2009.csv.csv"/>
+		<ee:transform doc:name="Transform Message" doc:id="c07770fa-be8e-4c6e-b0bb-7bcae0a6d637" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+import * from dw::Runtime
+output application/json
+---
+payload
+]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<set-payload value="#[payload]" doc:name="Set Payload" doc:id="15c9490f-47bc-423a-b7a5-c10d5e5661ea" />
+	</sub-flow>
+	<flow name="ObjectStore" doc:id="4213533b-a799-43ad-9bdf-b18e734780a5" >
+		<http:listener doc:name="Listener" doc:id="356dd0c6-4bc8-4d78-a54b-03ba6227b835" config-ref="HTTP_Listener_config" path="/osretrive"/>
+		<os:retrieve-all doc:name="Retrieve all" doc:id="cd9ca7c7-b155-4795-8252-326a34150a2e" objectStore="test_os"/>
+		<os:retrieve-all-keys doc:name="Retrieve all keys" doc:id="d1115c87-7d03-4d74-8190-dc43d8a3d990" objectStore="test_os"/>
+	</flow>
+</mule>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:workday="http://www.mulesoft.org/schema/mule/workday" xmlns:batch="http://www.mulesoft.org/schema/mule/batch"
+	xmlns:salesforce="http://www.mulesoft.org/schema/mule/salesforce"
+	xmlns:hdfs="http://www.mulesoft.org/schema/mule/hdfs" xmlns:vm="http://www.mulesoft.org/schema/mule/vm" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd
+http://www.mulesoft.org/schema/mule/hdfs http://www.mulesoft.org/schema/mule/hdfs/current/mule-hdfs.xsd
+http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mule/salesforce/current/mule-salesforce.xsd
+http://www.mulesoft.org/schema/mule/batch http://www.mulesoft.org/schema/mule/batch/current/mule-batch.xsd
+http://www.mulesoft.org/schema/mule/workday http://www.mulesoft.org/schema/mule/workday/current/mule-workday.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="cf793c28-3da9-412c-a83e-d0fe25612de9" >
+		<http:listener-connection host="localhost" port="8082" />
+	</http:listener-config>
+	<flow name="createaccountFlow" doc:id="c9dcd1a9-10c8-431d-b93e-e64d46851000" >
+		<http:listener doc:name="Listener" doc:id="d8f97ea0-dc16-4747-b1b9-d7e3b6a72499" config-ref="HTTP_Listener_config" path="/createaccount"/>
+		<logger level="INFO" doc:name="Logger" doc:id="11648f9e-2448-42d2-860a-c8ae3b1bbc2b" message="final response.........#[payload]"/>
+		<flow-ref doc:name="createaccountFlow1" doc:id="a59c7a19-1722-49f1-8190-6934ebd9bd3d" name="createaccountFlow1"/>
+		<set-payload value="accounted created successfully...." doc:name="Set Payload" doc:id="6ec0f89e-0f51-4f7a-998f-fa52838ca4fc" />
+		<logger level="INFO" doc:name="Logger" doc:id="f3dba44d-ffea-43fb-990a-68a5b7977aad" />
+	</flow>
+	<flow name="createaccountFlow1" doc:id="a6b94a7c-fb20-4e9c-a041-42a0802456cd" >
+		<set-payload value="welcome to mule esb training" doc:name="Set Payload" doc:id="aeede8a9-959f-45c0-a1a2-e637e6bbd673" />
+		<logger level="INFO" doc:name="Logger" doc:id="50db885b-cfe4-4dda-b2cc-bc96f8f73f95" message="method is.......#[attributes.method]" />
+	</flow>
+</mule>
