@@ -4,9 +4,12 @@ BranchProjectTracker__C\:\\Users\\lenovo\\AnypointStudio\\7.8\\.git_master=<?xml
 BranchProjectTracker__C\:\\Users\\lenovo\\AnypointStudio\\7.8\\createAccount\\.git_50dac0db2de1bc932c402ad9fc5ac505d60c5ce7=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<projects>\r\n<project>/</project>\r\n</projects>
 BranchProjectTracker__C\:\\Users\\lenovo\\AnypointStudio\\7.8\\createAccount\\.git_account=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<projects>\r\n<project>/</project>\r\n</projects>
 BranchProjectTracker__C\:\\Users\\lenovo\\AnypointStudio\\7.8\\createAccount\\.git_master=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<projects>\r\n<project>/</project>\r\n</projects>
+CloneWizard_ImportProjects=true
 StagingView_CompareMode=false
 StagingView_Presentation=COMPACT_TREE
-commit_dialog_history_messages=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<messages>\r\n<message>foreach</message>\r\n<message>ca</message>\r\n<message>CA</message>\r\n<message>A</message>\r\n<message>createAccount</message>\r\n<message>k</message>\r\n<message>first commit</message>\r\n<message>3</message>\r\n<message>first</message>\r\n<message>first time code commit</message>\r\n</messages>
+StagingView_ShowNewCommits=true
+StagingView_SyncWithSelection=false
+commit_dialog_history_messages=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<messages>\r\n<message>raml</message>\r\n<message>\# WARNING\: head commit changed in the meantime&\#x0A;&\#x0A;kuruu</message>\r\n<message>ok</message>\r\n<message>foreach</message>\r\n<message>ca</message>\r\n<message>CA</message>\r\n<message>A</message>\r\n<message>createAccount</message>\r\n<message>k</message>\r\n<message>first commit</message>\r\n</messages>
 eclipse.preferences.version=1
 org.eclipse.egit.ui.githistorypage.showallfilter=SHOWALLREPO
 repositories_view_filters=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<FilterCache/>
