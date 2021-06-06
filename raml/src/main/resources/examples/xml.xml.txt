@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ase:aseXML xmlns:ase="urn:aseXML:r38">
+   <Transactions>
+      <Transaction transactionDate="2005-10-15T01:02:35+10:00">
+         <SiteAccessRequest>
+            <Reason>Records old and need to be updated</Reason>
+         </SiteAccessRequest>
+      </Transaction>
+      <Transaction transactionDate="2010-10-15T01:02:35+10:00">
+         <SiteAccessRequest>
+            <NMI>4567890</NMI>
+            <Reason>updated</Reason>
+         </SiteAccessRequest>
+      </Transaction>
+   </Transactions>
+</ase:aseXML>

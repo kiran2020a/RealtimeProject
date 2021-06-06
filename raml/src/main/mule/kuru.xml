@@ -126,18 +126,6 @@ output application/json
         </error-handler>
     </flow>
     <flow name="get:\kuru:kuru-config">
-        <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd" doc:id="1c3858d8-551c-43a4-a5e5-f3042f369983">
-            <ee:message>
-                <ee:set-payload><![CDATA[%dw 2.0
-output application/json
----
-{
-  "OLA Bike": "Bike No: 1897",
-  Driver: "Kuru King of Sarrornagar",
-  "Note ": "High Risk and Highly Expensive Under emergency situation definitely available "
-}]]></ee:set-payload>
-            </ee:message>
-        </ee:transform>
 		<ee:transform doc:name="Transform Message" doc:id="12de7944-487f-409d-a2df-0431b773b55f" >
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0ns ns0 urn:aseXML:r38
@@ -149,5 +137,17 @@ output application/json
 ]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
+		<ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd" doc:id="1c3858d8-551c-43a4-a5e5-f3042f369983">
+            <ee:message>
+                <ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+{
+  "OLA Bike": "Bike No: 1897",
+  Driver: "Kuru King of Sarrornagar",
+  "Note ": "High Risk and Highly Expensive Under emergency situation definitely available "
+}]]></ee:set-payload>
+            </ee:message>
+        </ee:transform>
     </flow>
 </mule>

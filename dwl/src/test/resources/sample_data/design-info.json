@@ -1,0 +1,16 @@
+{
+  "sampleData": {
+    "50ca0a0c-f3ea-48a1-b2a0-1b24a63127f8": {
+      "payload": "sample_data/json.json"
+    },
+    "2f92a643-7b9c-4f45-8a02-e040352cc9df": {
+      "payload": "sample_data/java.dwl"
+    },
+    "2d0ef4b2-17cc-4ef1-bca3-21504a3458b6": {
+      "payload": "sample_data/list_defaulttypeparametertype.xml"
+    },
+    "33520151-5b3c-4b24-9795-c8085552b8a3": {
+      "payload": "sample_data/json_1.json"
+    }
+  }
+}

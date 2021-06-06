@@ -2347,3 +2347,664 @@ Binding(CTRL+ARROW_LEFT,
 
 !ENTRY org.mule.tooling.maven 1 0 2021-06-06 11:04:30.914
 !MESSAGE  *** 31352 EmbeddedMavenRunner [configuration=MavenPreferences [isDontWarnAgainIfNoInstallationFoundChecked()=false, isGlobalMavenSupportEnabled()=true, getMavenInstallationHome()=E:\mule\AnypointStudio\apache-maven-3.6.3, getMavenOpts()=, getDefaultGroupId()=com.mycompany, getBaseCommandline()=mvn clean package -nsu -DskipMunitTests, isDisplayRuntimeVersionWarning()=true, isExternalInstallation()=false]]
+
+!ENTRY org.eclipse.egit.ui 4 0 2021-06-06 11:20:05.614
+!MESSAGE git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:189)
+	at org.eclipse.jgit.api.LsRemoteCommand.call(LsRemoteCommand.java:128)
+	at org.eclipse.egit.core.op.ListRemoteOperation.run(ListRemoteOperation.java:116)
+	at org.eclipse.egit.ui.internal.components.AsynchronousListOperation.run(AsynchronousListOperation.java:78)
+	at org.eclipse.egit.ui.internal.dialogs.CancelableFuture$1.run(CancelableFuture.java:280)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.jgit.errors.TransportException: git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+	at org.eclipse.jgit.transport.sshd.SshdSessionFactory.getSession(SshdSessionFactory.java:233)
+	at org.eclipse.jgit.transport.sshd.SshdSessionFactory.getSession(SshdSessionFactory.java:1)
+	at org.eclipse.jgit.transport.SshTransport.getSession(SshTransport.java:107)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshFetchConnection.<init>(TransportGitSsh.java:254)
+	at org.eclipse.jgit.transport.TransportGitSsh.openFetch(TransportGitSsh.java:144)
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:167)
+	... 5 more
+Caused by: org.apache.sshd.common.SshException: No more authentication methods available
+	at org.apache.sshd.client.session.ClientUserAuthService.tryNext(ClientUserAuthService.java:333)
+	at org.apache.sshd.client.session.ClientUserAuthService.processUserAuth(ClientUserAuthService.java:266)
+	at org.apache.sshd.client.session.ClientUserAuthService.process(ClientUserAuthService.java:212)
+	at org.apache.sshd.common.session.helpers.AbstractSession.doHandleMessage(AbstractSession.java:466)
+	at org.apache.sshd.common.session.helpers.AbstractSession.handleMessage(AbstractSession.java:392)
+	at org.apache.sshd.common.session.helpers.AbstractSession.decode(AbstractSession.java:1304)
+	at org.apache.sshd.common.session.helpers.AbstractSession.messageReceived(AbstractSession.java:348)
+	at org.eclipse.jgit.internal.transport.sshd.JGitClientSession.messageReceived(JGitClientSession.java:191)
+	at org.apache.sshd.common.session.helpers.AbstractSessionIoHandler.messageReceived(AbstractSessionIoHandler.java:63)
+	at org.apache.sshd.common.io.nio2.Nio2Session.handleReadCycleCompletion(Nio2Session.java:368)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:346)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:343)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.lambda$completed$0(Nio2CompletionHandler.java:38)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.completed(Nio2CompletionHandler.java:37)
+	at sun.nio.ch.Invoker.invokeUnchecked(Invoker.java:126)
+	at sun.nio.ch.Invoker$2.run(Invoker.java:218)
+	at sun.nio.ch.AsynchronousChannelGroupImpl$1.run(AsynchronousChannelGroupImpl.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY org.eclipse.egit.core 4 0 2021-06-06 11:20:27.322
+!MESSAGE An exception occurred during push on URI git@gitlab.com:kumar1896/my-projcts.git: git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+!STACK 0
+org.eclipse.jgit.errors.TransportException: git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+	at org.eclipse.jgit.transport.sshd.SshdSessionFactory.getSession(SshdSessionFactory.java:233)
+	at org.eclipse.jgit.transport.sshd.SshdSessionFactory.getSession(SshdSessionFactory.java:1)
+	at org.eclipse.jgit.transport.SshTransport.getSession(SshTransport.java:107)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshPushConnection.<init>(TransportGitSsh.java:313)
+	at org.eclipse.jgit.transport.TransportGitSsh.openPush(TransportGitSsh.java:150)
+	at org.eclipse.jgit.transport.PushProcess.execute(PushProcess.java:127)
+	at org.eclipse.jgit.transport.Transport.push(Transport.java:1335)
+	at org.eclipse.egit.core.op.PushOperation.run(PushOperation.java:191)
+	at org.eclipse.egit.ui.internal.push.ConfirmationPage$2.run(ConfirmationPage.java:211)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+Caused by: org.apache.sshd.common.SshException: No more authentication methods available
+	at org.apache.sshd.client.session.ClientUserAuthService.tryNext(ClientUserAuthService.java:333)
+	at org.apache.sshd.client.session.ClientUserAuthService.processUserAuth(ClientUserAuthService.java:266)
+	at org.apache.sshd.client.session.ClientUserAuthService.process(ClientUserAuthService.java:212)
+	at org.apache.sshd.common.session.helpers.AbstractSession.doHandleMessage(AbstractSession.java:466)
+	at org.apache.sshd.common.session.helpers.AbstractSession.handleMessage(AbstractSession.java:392)
+	at org.apache.sshd.common.session.helpers.AbstractSession.decode(AbstractSession.java:1304)
+	at org.apache.sshd.common.session.helpers.AbstractSession.messageReceived(AbstractSession.java:348)
+	at org.eclipse.jgit.internal.transport.sshd.JGitClientSession.messageReceived(JGitClientSession.java:191)
+	at org.apache.sshd.common.session.helpers.AbstractSessionIoHandler.messageReceived(AbstractSessionIoHandler.java:63)
+	at org.apache.sshd.common.io.nio2.Nio2Session.handleReadCycleCompletion(Nio2Session.java:368)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:346)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:343)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.lambda$completed$0(Nio2CompletionHandler.java:38)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.completed(Nio2CompletionHandler.java:37)
+	at sun.nio.ch.Invoker.invokeUnchecked(Invoker.java:126)
+	at sun.nio.ch.Invoker$2.run(Invoker.java:218)
+	at sun.nio.ch.AsynchronousChannelGroupImpl$1.run(AsynchronousChannelGroupImpl.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY org.eclipse.egit.ui 4 0 2021-06-06 11:24:03.137
+!MESSAGE git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:189)
+	at org.eclipse.jgit.api.LsRemoteCommand.call(LsRemoteCommand.java:128)
+	at org.eclipse.egit.core.op.ListRemoteOperation.run(ListRemoteOperation.java:116)
+	at org.eclipse.egit.ui.internal.components.AsynchronousListOperation.run(AsynchronousListOperation.java:78)
+	at org.eclipse.egit.ui.internal.dialogs.CancelableFuture$1.run(CancelableFuture.java:280)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.jgit.errors.TransportException: git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+	at org.eclipse.jgit.transport.sshd.SshdSessionFactory.getSession(SshdSessionFactory.java:233)
+	at org.eclipse.jgit.transport.sshd.SshdSessionFactory.getSession(SshdSessionFactory.java:1)
+	at org.eclipse.jgit.transport.SshTransport.getSession(SshTransport.java:107)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshFetchConnection.<init>(TransportGitSsh.java:254)
+	at org.eclipse.jgit.transport.TransportGitSsh.openFetch(TransportGitSsh.java:144)
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:167)
+	... 5 more
+Caused by: org.apache.sshd.common.SshException: No more authentication methods available
+	at org.apache.sshd.client.session.ClientUserAuthService.tryNext(ClientUserAuthService.java:333)
+	at org.apache.sshd.client.session.ClientUserAuthService.processUserAuth(ClientUserAuthService.java:266)
+	at org.apache.sshd.client.session.ClientUserAuthService.process(ClientUserAuthService.java:212)
+	at org.apache.sshd.common.session.helpers.AbstractSession.doHandleMessage(AbstractSession.java:466)
+	at org.apache.sshd.common.session.helpers.AbstractSession.handleMessage(AbstractSession.java:392)
+	at org.apache.sshd.common.session.helpers.AbstractSession.decode(AbstractSession.java:1304)
+	at org.apache.sshd.common.session.helpers.AbstractSession.messageReceived(AbstractSession.java:348)
+	at org.eclipse.jgit.internal.transport.sshd.JGitClientSession.messageReceived(JGitClientSession.java:191)
+	at org.apache.sshd.common.session.helpers.AbstractSessionIoHandler.messageReceived(AbstractSessionIoHandler.java:63)
+	at org.apache.sshd.common.io.nio2.Nio2Session.handleReadCycleCompletion(Nio2Session.java:368)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:346)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:343)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.lambda$completed$0(Nio2CompletionHandler.java:38)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.completed(Nio2CompletionHandler.java:37)
+	at sun.nio.ch.Invoker.invokeUnchecked(Invoker.java:126)
+	at sun.nio.ch.Invoker$2.run(Invoker.java:218)
+	at sun.nio.ch.AsynchronousChannelGroupImpl$1.run(AsynchronousChannelGroupImpl.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY org.eclipse.egit.ui 4 0 2021-06-06 11:26:22.362
+!MESSAGE git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:189)
+	at org.eclipse.jgit.api.LsRemoteCommand.call(LsRemoteCommand.java:128)
+	at org.eclipse.egit.core.op.ListRemoteOperation.run(ListRemoteOperation.java:116)
+	at org.eclipse.egit.ui.internal.components.AsynchronousListOperation.run(AsynchronousListOperation.java:78)
+	at org.eclipse.egit.ui.internal.dialogs.CancelableFuture$1.run(CancelableFuture.java:280)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.jgit.errors.TransportException: git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+	at org.eclipse.jgit.transport.sshd.SshdSessionFactory.getSession(SshdSessionFactory.java:233)
+	at org.eclipse.jgit.transport.sshd.SshdSessionFactory.getSession(SshdSessionFactory.java:1)
+	at org.eclipse.jgit.transport.SshTransport.getSession(SshTransport.java:107)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshFetchConnection.<init>(TransportGitSsh.java:254)
+	at org.eclipse.jgit.transport.TransportGitSsh.openFetch(TransportGitSsh.java:144)
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:167)
+	... 5 more
+Caused by: org.apache.sshd.common.SshException: No more authentication methods available
+	at org.apache.sshd.client.session.ClientUserAuthService.tryNext(ClientUserAuthService.java:333)
+	at org.apache.sshd.client.session.ClientUserAuthService.processUserAuth(ClientUserAuthService.java:266)
+	at org.apache.sshd.client.session.ClientUserAuthService.process(ClientUserAuthService.java:212)
+	at org.apache.sshd.common.session.helpers.AbstractSession.doHandleMessage(AbstractSession.java:466)
+	at org.apache.sshd.common.session.helpers.AbstractSession.handleMessage(AbstractSession.java:392)
+	at org.apache.sshd.common.session.helpers.AbstractSession.decode(AbstractSession.java:1304)
+	at org.apache.sshd.common.session.helpers.AbstractSession.messageReceived(AbstractSession.java:348)
+	at org.eclipse.jgit.internal.transport.sshd.JGitClientSession.messageReceived(JGitClientSession.java:191)
+	at org.apache.sshd.common.session.helpers.AbstractSessionIoHandler.messageReceived(AbstractSessionIoHandler.java:63)
+	at org.apache.sshd.common.io.nio2.Nio2Session.handleReadCycleCompletion(Nio2Session.java:368)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:346)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:343)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.lambda$completed$0(Nio2CompletionHandler.java:38)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.completed(Nio2CompletionHandler.java:37)
+	at sun.nio.ch.Invoker.invokeUnchecked(Invoker.java:126)
+	at sun.nio.ch.Invoker$2.run(Invoker.java:218)
+	at sun.nio.ch.AsynchronousChannelGroupImpl$1.run(AsynchronousChannelGroupImpl.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY org.eclipse.egit.core 4 0 2021-06-06 11:26:32.258
+!MESSAGE An exception occurred during push on URI git@gitlab.com:kumar1896/my-projcts.git: git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+!STACK 0
+org.eclipse.jgit.errors.TransportException: git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+	at org.eclipse.jgit.transport.sshd.SshdSessionFactory.getSession(SshdSessionFactory.java:233)
+	at org.eclipse.jgit.transport.sshd.SshdSessionFactory.getSession(SshdSessionFactory.java:1)
+	at org.eclipse.jgit.transport.SshTransport.getSession(SshTransport.java:107)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshPushConnection.<init>(TransportGitSsh.java:313)
+	at org.eclipse.jgit.transport.TransportGitSsh.openPush(TransportGitSsh.java:150)
+	at org.eclipse.jgit.transport.PushProcess.execute(PushProcess.java:127)
+	at org.eclipse.jgit.transport.Transport.push(Transport.java:1335)
+	at org.eclipse.egit.core.op.PushOperation.run(PushOperation.java:191)
+	at org.eclipse.egit.ui.internal.push.ConfirmationPage$2.run(ConfirmationPage.java:211)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+Caused by: org.apache.sshd.common.SshException: No more authentication methods available
+	at org.apache.sshd.client.session.ClientUserAuthService.tryNext(ClientUserAuthService.java:333)
+	at org.apache.sshd.client.session.ClientUserAuthService.processUserAuth(ClientUserAuthService.java:266)
+	at org.apache.sshd.client.session.ClientUserAuthService.process(ClientUserAuthService.java:212)
+	at org.apache.sshd.common.session.helpers.AbstractSession.doHandleMessage(AbstractSession.java:466)
+	at org.apache.sshd.common.session.helpers.AbstractSession.handleMessage(AbstractSession.java:392)
+	at org.apache.sshd.common.session.helpers.AbstractSession.decode(AbstractSession.java:1304)
+	at org.apache.sshd.common.session.helpers.AbstractSession.messageReceived(AbstractSession.java:348)
+	at org.eclipse.jgit.internal.transport.sshd.JGitClientSession.messageReceived(JGitClientSession.java:191)
+	at org.apache.sshd.common.session.helpers.AbstractSessionIoHandler.messageReceived(AbstractSessionIoHandler.java:63)
+	at org.apache.sshd.common.io.nio2.Nio2Session.handleReadCycleCompletion(Nio2Session.java:368)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:346)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:343)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.lambda$completed$0(Nio2CompletionHandler.java:38)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.completed(Nio2CompletionHandler.java:37)
+	at sun.nio.ch.Invoker.invokeUnchecked(Invoker.java:126)
+	at sun.nio.ch.Invoker$2.run(Invoker.java:218)
+	at sun.nio.ch.AsynchronousChannelGroupImpl$1.run(AsynchronousChannelGroupImpl.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY org.eclipse.egit.ui 4 0 2021-06-06 11:27:38.553
+!MESSAGE git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:189)
+	at org.eclipse.jgit.api.LsRemoteCommand.call(LsRemoteCommand.java:128)
+	at org.eclipse.egit.core.op.ListRemoteOperation.run(ListRemoteOperation.java:116)
+	at org.eclipse.egit.ui.internal.components.AsynchronousListOperation.run(AsynchronousListOperation.java:78)
+	at org.eclipse.egit.ui.internal.dialogs.CancelableFuture$1.run(CancelableFuture.java:280)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.jgit.errors.TransportException: git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+	at org.eclipse.jgit.transport.sshd.SshdSessionFactory.getSession(SshdSessionFactory.java:233)
+	at org.eclipse.jgit.transport.sshd.SshdSessionFactory.getSession(SshdSessionFactory.java:1)
+	at org.eclipse.jgit.transport.SshTransport.getSession(SshTransport.java:107)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshFetchConnection.<init>(TransportGitSsh.java:254)
+	at org.eclipse.jgit.transport.TransportGitSsh.openFetch(TransportGitSsh.java:144)
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:167)
+	... 5 more
+Caused by: org.apache.sshd.common.SshException: No more authentication methods available
+	at org.apache.sshd.client.session.ClientUserAuthService.tryNext(ClientUserAuthService.java:333)
+	at org.apache.sshd.client.session.ClientUserAuthService.processUserAuth(ClientUserAuthService.java:266)
+	at org.apache.sshd.client.session.ClientUserAuthService.process(ClientUserAuthService.java:212)
+	at org.apache.sshd.common.session.helpers.AbstractSession.doHandleMessage(AbstractSession.java:466)
+	at org.apache.sshd.common.session.helpers.AbstractSession.handleMessage(AbstractSession.java:392)
+	at org.apache.sshd.common.session.helpers.AbstractSession.decode(AbstractSession.java:1304)
+	at org.apache.sshd.common.session.helpers.AbstractSession.messageReceived(AbstractSession.java:348)
+	at org.eclipse.jgit.internal.transport.sshd.JGitClientSession.messageReceived(JGitClientSession.java:191)
+	at org.apache.sshd.common.session.helpers.AbstractSessionIoHandler.messageReceived(AbstractSessionIoHandler.java:63)
+	at org.apache.sshd.common.io.nio2.Nio2Session.handleReadCycleCompletion(Nio2Session.java:368)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:346)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:343)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.lambda$completed$0(Nio2CompletionHandler.java:38)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.completed(Nio2CompletionHandler.java:37)
+	at sun.nio.ch.Invoker.invokeUnchecked(Invoker.java:126)
+	at sun.nio.ch.Invoker$2.run(Invoker.java:218)
+	at sun.nio.ch.AsynchronousChannelGroupImpl$1.run(AsynchronousChannelGroupImpl.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY org.eclipse.egit.ui 4 0 2021-06-06 11:28:37.526
+!MESSAGE git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:189)
+	at org.eclipse.jgit.api.LsRemoteCommand.call(LsRemoteCommand.java:128)
+	at org.eclipse.egit.core.op.ListRemoteOperation.run(ListRemoteOperation.java:116)
+	at org.eclipse.egit.ui.internal.components.AsynchronousListOperation.run(AsynchronousListOperation.java:78)
+	at org.eclipse.egit.ui.internal.dialogs.CancelableFuture$1.run(CancelableFuture.java:280)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.jgit.errors.TransportException: git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+	at org.eclipse.jgit.transport.sshd.SshdSessionFactory.getSession(SshdSessionFactory.java:233)
+	at org.eclipse.jgit.transport.sshd.SshdSessionFactory.getSession(SshdSessionFactory.java:1)
+	at org.eclipse.jgit.transport.SshTransport.getSession(SshTransport.java:107)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshFetchConnection.<init>(TransportGitSsh.java:254)
+	at org.eclipse.jgit.transport.TransportGitSsh.openFetch(TransportGitSsh.java:144)
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:167)
+	... 5 more
+Caused by: org.apache.sshd.common.SshException: No more authentication methods available
+	at org.apache.sshd.client.session.ClientUserAuthService.tryNext(ClientUserAuthService.java:333)
+	at org.apache.sshd.client.session.ClientUserAuthService.processUserAuth(ClientUserAuthService.java:266)
+	at org.apache.sshd.client.session.ClientUserAuthService.process(ClientUserAuthService.java:212)
+	at org.apache.sshd.common.session.helpers.AbstractSession.doHandleMessage(AbstractSession.java:466)
+	at org.apache.sshd.common.session.helpers.AbstractSession.handleMessage(AbstractSession.java:392)
+	at org.apache.sshd.common.session.helpers.AbstractSession.decode(AbstractSession.java:1304)
+	at org.apache.sshd.common.session.helpers.AbstractSession.messageReceived(AbstractSession.java:348)
+	at org.eclipse.jgit.internal.transport.sshd.JGitClientSession.messageReceived(JGitClientSession.java:191)
+	at org.apache.sshd.common.session.helpers.AbstractSessionIoHandler.messageReceived(AbstractSessionIoHandler.java:63)
+	at org.apache.sshd.common.io.nio2.Nio2Session.handleReadCycleCompletion(Nio2Session.java:368)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:346)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:343)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.lambda$completed$0(Nio2CompletionHandler.java:38)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.completed(Nio2CompletionHandler.java:37)
+	at sun.nio.ch.Invoker.invokeUnchecked(Invoker.java:126)
+	at sun.nio.ch.Invoker$2.run(Invoker.java:218)
+	at sun.nio.ch.AsynchronousChannelGroupImpl$1.run(AsynchronousChannelGroupImpl.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY org.eclipse.egit.ui 4 0 2021-06-06 11:30:28.872
+!MESSAGE git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:189)
+	at org.eclipse.jgit.api.LsRemoteCommand.call(LsRemoteCommand.java:128)
+	at org.eclipse.egit.core.op.ListRemoteOperation.run(ListRemoteOperation.java:116)
+	at org.eclipse.egit.ui.internal.components.AsynchronousListOperation.run(AsynchronousListOperation.java:78)
+	at org.eclipse.egit.ui.internal.dialogs.CancelableFuture$1.run(CancelableFuture.java:280)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.jgit.errors.TransportException: git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+	at org.eclipse.jgit.transport.sshd.SshdSessionFactory.getSession(SshdSessionFactory.java:233)
+	at org.eclipse.jgit.transport.sshd.SshdSessionFactory.getSession(SshdSessionFactory.java:1)
+	at org.eclipse.jgit.transport.SshTransport.getSession(SshTransport.java:107)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshFetchConnection.<init>(TransportGitSsh.java:254)
+	at org.eclipse.jgit.transport.TransportGitSsh.openFetch(TransportGitSsh.java:144)
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:167)
+	... 5 more
+Caused by: org.apache.sshd.common.SshException: No more authentication methods available
+	at org.apache.sshd.client.session.ClientUserAuthService.tryNext(ClientUserAuthService.java:333)
+	at org.apache.sshd.client.session.ClientUserAuthService.processUserAuth(ClientUserAuthService.java:266)
+	at org.apache.sshd.client.session.ClientUserAuthService.process(ClientUserAuthService.java:212)
+	at org.apache.sshd.common.session.helpers.AbstractSession.doHandleMessage(AbstractSession.java:466)
+	at org.apache.sshd.common.session.helpers.AbstractSession.handleMessage(AbstractSession.java:392)
+	at org.apache.sshd.common.session.helpers.AbstractSession.decode(AbstractSession.java:1304)
+	at org.apache.sshd.common.session.helpers.AbstractSession.messageReceived(AbstractSession.java:348)
+	at org.eclipse.jgit.internal.transport.sshd.JGitClientSession.messageReceived(JGitClientSession.java:191)
+	at org.apache.sshd.common.session.helpers.AbstractSessionIoHandler.messageReceived(AbstractSessionIoHandler.java:63)
+	at org.apache.sshd.common.io.nio2.Nio2Session.handleReadCycleCompletion(Nio2Session.java:368)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:346)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:343)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.lambda$completed$0(Nio2CompletionHandler.java:38)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.completed(Nio2CompletionHandler.java:37)
+	at sun.nio.ch.Invoker.invokeUnchecked(Invoker.java:126)
+	at sun.nio.ch.Invoker$2.run(Invoker.java:218)
+	at sun.nio.ch.AsynchronousChannelGroupImpl$1.run(AsynchronousChannelGroupImpl.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY org.eclipse.egit.ui 4 0 2021-06-06 11:33:52.379
+!MESSAGE git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:189)
+	at org.eclipse.jgit.api.LsRemoteCommand.call(LsRemoteCommand.java:128)
+	at org.eclipse.egit.core.op.ListRemoteOperation.run(ListRemoteOperation.java:116)
+	at org.eclipse.egit.ui.internal.components.AsynchronousListOperation.run(AsynchronousListOperation.java:78)
+	at org.eclipse.egit.ui.internal.dialogs.CancelableFuture$1.run(CancelableFuture.java:280)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.jgit.errors.TransportException: git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+	at org.eclipse.jgit.transport.sshd.SshdSessionFactory.getSession(SshdSessionFactory.java:233)
+	at org.eclipse.jgit.transport.sshd.SshdSessionFactory.getSession(SshdSessionFactory.java:1)
+	at org.eclipse.jgit.transport.SshTransport.getSession(SshTransport.java:107)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshFetchConnection.<init>(TransportGitSsh.java:254)
+	at org.eclipse.jgit.transport.TransportGitSsh.openFetch(TransportGitSsh.java:144)
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:167)
+	... 5 more
+Caused by: org.apache.sshd.common.SshException: No more authentication methods available
+	at org.apache.sshd.client.session.ClientUserAuthService.tryNext(ClientUserAuthService.java:333)
+	at org.apache.sshd.client.session.ClientUserAuthService.processUserAuth(ClientUserAuthService.java:266)
+	at org.apache.sshd.client.session.ClientUserAuthService.process(ClientUserAuthService.java:212)
+	at org.apache.sshd.common.session.helpers.AbstractSession.doHandleMessage(AbstractSession.java:466)
+	at org.apache.sshd.common.session.helpers.AbstractSession.handleMessage(AbstractSession.java:392)
+	at org.apache.sshd.common.session.helpers.AbstractSession.decode(AbstractSession.java:1304)
+	at org.apache.sshd.common.session.helpers.AbstractSession.messageReceived(AbstractSession.java:348)
+	at org.eclipse.jgit.internal.transport.sshd.JGitClientSession.messageReceived(JGitClientSession.java:191)
+	at org.apache.sshd.common.session.helpers.AbstractSessionIoHandler.messageReceived(AbstractSessionIoHandler.java:63)
+	at org.apache.sshd.common.io.nio2.Nio2Session.handleReadCycleCompletion(Nio2Session.java:368)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:346)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:343)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.lambda$completed$0(Nio2CompletionHandler.java:38)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.completed(Nio2CompletionHandler.java:37)
+	at sun.nio.ch.Invoker.invokeUnchecked(Invoker.java:126)
+	at sun.nio.ch.Invoker$2.run(Invoker.java:218)
+	at sun.nio.ch.AsynchronousChannelGroupImpl$1.run(AsynchronousChannelGroupImpl.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY org.eclipse.egit.ui 4 0 2021-06-06 11:35:05.137
+!MESSAGE git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:189)
+	at org.eclipse.jgit.api.LsRemoteCommand.call(LsRemoteCommand.java:128)
+	at org.eclipse.egit.core.op.ListRemoteOperation.run(ListRemoteOperation.java:116)
+	at org.eclipse.egit.ui.internal.components.AsynchronousListOperation.run(AsynchronousListOperation.java:78)
+	at org.eclipse.egit.ui.internal.dialogs.CancelableFuture$1.run(CancelableFuture.java:280)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.jgit.errors.TransportException: git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+	at org.eclipse.jgit.transport.sshd.SshdSessionFactory.getSession(SshdSessionFactory.java:233)
+	at org.eclipse.jgit.transport.sshd.SshdSessionFactory.getSession(SshdSessionFactory.java:1)
+	at org.eclipse.jgit.transport.SshTransport.getSession(SshTransport.java:107)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshFetchConnection.<init>(TransportGitSsh.java:254)
+	at org.eclipse.jgit.transport.TransportGitSsh.openFetch(TransportGitSsh.java:144)
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:167)
+	... 5 more
+Caused by: org.apache.sshd.common.SshException: No more authentication methods available
+	at org.apache.sshd.client.session.ClientUserAuthService.tryNext(ClientUserAuthService.java:333)
+	at org.apache.sshd.client.session.ClientUserAuthService.processUserAuth(ClientUserAuthService.java:266)
+	at org.apache.sshd.client.session.ClientUserAuthService.process(ClientUserAuthService.java:212)
+	at org.apache.sshd.common.session.helpers.AbstractSession.doHandleMessage(AbstractSession.java:466)
+	at org.apache.sshd.common.session.helpers.AbstractSession.handleMessage(AbstractSession.java:392)
+	at org.apache.sshd.common.session.helpers.AbstractSession.decode(AbstractSession.java:1304)
+	at org.apache.sshd.common.session.helpers.AbstractSession.messageReceived(AbstractSession.java:348)
+	at org.eclipse.jgit.internal.transport.sshd.JGitClientSession.messageReceived(JGitClientSession.java:191)
+	at org.apache.sshd.common.session.helpers.AbstractSessionIoHandler.messageReceived(AbstractSessionIoHandler.java:63)
+	at org.apache.sshd.common.io.nio2.Nio2Session.handleReadCycleCompletion(Nio2Session.java:368)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:346)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:343)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.lambda$completed$0(Nio2CompletionHandler.java:38)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.completed(Nio2CompletionHandler.java:37)
+	at sun.nio.ch.Invoker.invokeUnchecked(Invoker.java:126)
+	at sun.nio.ch.Invoker$2.run(Invoker.java:218)
+	at sun.nio.ch.AsynchronousChannelGroupImpl$1.run(AsynchronousChannelGroupImpl.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY org.eclipse.egit.core 4 0 2021-06-06 11:37:23.716
+!MESSAGE An exception occurred during push on URI https://gitlab.com/kumar1896/my-projcts: https://gitlab.com/kumar1896/my-projcts: Read timed out after 300,000 ms
+!STACK 0
+org.eclipse.jgit.errors.TransportException: https://gitlab.com/kumar1896/my-projcts: Read timed out after 300,000 ms
+	at org.eclipse.jgit.transport.BasePackPushConnection.doPush(BasePackPushConnection.java:206)
+	at org.eclipse.jgit.transport.TransportHttp$SmartHttpPushConnection.doPush(TransportHttp.java:1332)
+	at org.eclipse.jgit.transport.BasePackPushConnection.push(BasePackPushConnection.java:137)
+	at org.eclipse.jgit.transport.PushProcess.execute(PushProcess.java:139)
+	at org.eclipse.jgit.transport.Transport.push(Transport.java:1335)
+	at org.eclipse.egit.core.op.PushOperation.run(PushOperation.java:191)
+	at org.eclipse.egit.ui.internal.push.PushJob.performJob(PushJob.java:86)
+	at org.eclipse.egit.ui.internal.jobs.RepositoryJob.run(RepositoryJob.java:59)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.io.InterruptedIOException: Read timed out after 300,000 ms
+	at org.eclipse.jgit.util.io.TimeoutInputStream.readTimedOut(TimeoutInputStream.java:120)
+	at org.eclipse.jgit.util.io.TimeoutInputStream.read(TimeoutInputStream.java:92)
+	at org.eclipse.jgit.util.IO.readFully(IO.java:201)
+	at org.eclipse.jgit.transport.PacketLineIn.readLength(PacketLineIn.java:284)
+	at org.eclipse.jgit.transport.SideBandInputStream.needDataPacket(SideBandInputStream.java:124)
+	at org.eclipse.jgit.transport.SideBandInputStream.read(SideBandInputStream.java:106)
+	at org.eclipse.jgit.util.IO.readFully(IO.java:201)
+	at org.eclipse.jgit.transport.PacketLineIn.readLength(PacketLineIn.java:284)
+	at org.eclipse.jgit.transport.PacketLineIn.readString(PacketLineIn.java:148)
+	at org.eclipse.jgit.transport.BasePackPushConnection.readStringLongTimeout(BasePackPushConnection.java:404)
+	at org.eclipse.jgit.transport.BasePackPushConnection.readStatusReport(BasePackPushConnection.java:337)
+	at org.eclipse.jgit.transport.BasePackPushConnection.doPush(BasePackPushConnection.java:189)
+	... 8 more
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+	at java.net.SocketInputStream.read(SocketInputStream.java:171)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at sun.security.ssl.InputRecord.readFully(InputRecord.java:465)
+	at sun.security.ssl.InputRecord.read(InputRecord.java:503)
+	at sun.security.ssl.SSLSocketImpl.readRecord(SSLSocketImpl.java:990)
+	at sun.security.ssl.SSLSocketImpl.readDataRecord(SSLSocketImpl.java:948)
+	at sun.security.ssl.AppInputStream.read(AppInputStream.java:105)
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137)
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153)
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:280)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56)
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259)
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163)
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:157)
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273)
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:108)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
+	at org.eclipse.jgit.transport.http.apache.HttpClientConnection.execute(HttpClientConnection.java:269)
+	at org.eclipse.jgit.transport.http.apache.HttpClientConnection.getResponseCode(HttpClientConnection.java:237)
+	at org.eclipse.jgit.util.HttpSupport.response(HttpSupport.java:208)
+	at org.eclipse.jgit.transport.TransportHttp$Service.openResponse(TransportHttp.java:1544)
+	at org.eclipse.jgit.transport.TransportHttp$MultiRequestService.execute(TransportHttp.java:1651)
+	at org.eclipse.jgit.transport.TransportHttp$Service$HttpExecuteStream.read(TransportHttp.java:1576)
+	at org.eclipse.jgit.util.io.UnionInputStream.read(UnionInputStream.java:116)
+	at java.io.FilterInputStream.read(FilterInputStream.java:133)
+	at org.eclipse.jgit.util.io.TimeoutInputStream.read(TimeoutInputStream.java:90)
+	... 18 more
+
+!ENTRY org.eclipse.egit.ui 4 0 2021-06-06 11:37:23.732
+!MESSAGE Can't connect to any repository: https://gitlab.com/kumar1896/my-projcts (https://gitlab.com/kumar1896/my-projcts: Read timed out after 300,000 ms)
+
+!ENTRY org.eclipse.egit.ui 4 0 2021-06-06 11:37:37.128
+!MESSAGE git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:189)
+	at org.eclipse.jgit.api.LsRemoteCommand.call(LsRemoteCommand.java:128)
+	at org.eclipse.egit.core.op.ListRemoteOperation.run(ListRemoteOperation.java:116)
+	at org.eclipse.egit.ui.internal.components.AsynchronousListOperation.run(AsynchronousListOperation.java:78)
+	at org.eclipse.egit.ui.internal.dialogs.CancelableFuture$1.run(CancelableFuture.java:280)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.jgit.errors.TransportException: git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+	at org.eclipse.jgit.transport.sshd.SshdSessionFactory.getSession(SshdSessionFactory.java:233)
+	at org.eclipse.jgit.transport.sshd.SshdSessionFactory.getSession(SshdSessionFactory.java:1)
+	at org.eclipse.jgit.transport.SshTransport.getSession(SshTransport.java:107)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshFetchConnection.<init>(TransportGitSsh.java:254)
+	at org.eclipse.jgit.transport.TransportGitSsh.openFetch(TransportGitSsh.java:144)
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:167)
+	... 5 more
+Caused by: org.apache.sshd.common.SshException: No more authentication methods available
+	at org.apache.sshd.client.session.ClientUserAuthService.tryNext(ClientUserAuthService.java:333)
+	at org.apache.sshd.client.session.ClientUserAuthService.processUserAuth(ClientUserAuthService.java:266)
+	at org.apache.sshd.client.session.ClientUserAuthService.process(ClientUserAuthService.java:212)
+	at org.apache.sshd.common.session.helpers.AbstractSession.doHandleMessage(AbstractSession.java:466)
+	at org.apache.sshd.common.session.helpers.AbstractSession.handleMessage(AbstractSession.java:392)
+	at org.apache.sshd.common.session.helpers.AbstractSession.decode(AbstractSession.java:1304)
+	at org.apache.sshd.common.session.helpers.AbstractSession.messageReceived(AbstractSession.java:348)
+	at org.eclipse.jgit.internal.transport.sshd.JGitClientSession.messageReceived(JGitClientSession.java:191)
+	at org.apache.sshd.common.session.helpers.AbstractSessionIoHandler.messageReceived(AbstractSessionIoHandler.java:63)
+	at org.apache.sshd.common.io.nio2.Nio2Session.handleReadCycleCompletion(Nio2Session.java:368)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:346)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:343)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.lambda$completed$0(Nio2CompletionHandler.java:38)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.completed(Nio2CompletionHandler.java:37)
+	at sun.nio.ch.Invoker.invokeUnchecked(Invoker.java:126)
+	at sun.nio.ch.Invoker$2.run(Invoker.java:218)
+	at sun.nio.ch.AsynchronousChannelGroupImpl$1.run(AsynchronousChannelGroupImpl.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY org.eclipse.egit.ui 4 0 2021-06-06 11:39:28.716
+!MESSAGE git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:189)
+	at org.eclipse.jgit.api.LsRemoteCommand.call(LsRemoteCommand.java:128)
+	at org.eclipse.egit.core.op.ListRemoteOperation.run(ListRemoteOperation.java:116)
+	at org.eclipse.egit.ui.internal.components.AsynchronousListOperation.run(AsynchronousListOperation.java:78)
+	at org.eclipse.egit.ui.internal.dialogs.CancelableFuture$1.run(CancelableFuture.java:280)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.jgit.errors.TransportException: git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+	at org.eclipse.jgit.transport.sshd.SshdSessionFactory.getSession(SshdSessionFactory.java:233)
+	at org.eclipse.jgit.transport.sshd.SshdSessionFactory.getSession(SshdSessionFactory.java:1)
+	at org.eclipse.jgit.transport.SshTransport.getSession(SshTransport.java:107)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshFetchConnection.<init>(TransportGitSsh.java:254)
+	at org.eclipse.jgit.transport.TransportGitSsh.openFetch(TransportGitSsh.java:144)
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:167)
+	... 5 more
+Caused by: org.apache.sshd.common.SshException: No more authentication methods available
+	at org.apache.sshd.client.session.ClientUserAuthService.tryNext(ClientUserAuthService.java:333)
+	at org.apache.sshd.client.session.ClientUserAuthService.processUserAuth(ClientUserAuthService.java:266)
+	at org.apache.sshd.client.session.ClientUserAuthService.process(ClientUserAuthService.java:212)
+	at org.apache.sshd.common.session.helpers.AbstractSession.doHandleMessage(AbstractSession.java:466)
+	at org.apache.sshd.common.session.helpers.AbstractSession.handleMessage(AbstractSession.java:392)
+	at org.apache.sshd.common.session.helpers.AbstractSession.decode(AbstractSession.java:1304)
+	at org.apache.sshd.common.session.helpers.AbstractSession.messageReceived(AbstractSession.java:348)
+	at org.eclipse.jgit.internal.transport.sshd.JGitClientSession.messageReceived(JGitClientSession.java:191)
+	at org.apache.sshd.common.session.helpers.AbstractSessionIoHandler.messageReceived(AbstractSessionIoHandler.java:63)
+	at org.apache.sshd.common.io.nio2.Nio2Session.handleReadCycleCompletion(Nio2Session.java:368)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:346)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:343)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.lambda$completed$0(Nio2CompletionHandler.java:38)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.completed(Nio2CompletionHandler.java:37)
+	at sun.nio.ch.Invoker.invokeUnchecked(Invoker.java:126)
+	at sun.nio.ch.Invoker$2.run(Invoker.java:218)
+	at sun.nio.ch.AsynchronousChannelGroupImpl$1.run(AsynchronousChannelGroupImpl.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY org.eclipse.egit.ui 4 0 2021-06-06 11:44:06.271
+!MESSAGE git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:189)
+	at org.eclipse.jgit.api.LsRemoteCommand.call(LsRemoteCommand.java:128)
+	at org.eclipse.egit.core.op.ListRemoteOperation.run(ListRemoteOperation.java:116)
+	at org.eclipse.egit.ui.internal.components.AsynchronousListOperation.run(AsynchronousListOperation.java:78)
+	at org.eclipse.egit.ui.internal.dialogs.CancelableFuture$1.run(CancelableFuture.java:280)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.jgit.errors.TransportException: git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+	at org.eclipse.jgit.transport.sshd.SshdSessionFactory.getSession(SshdSessionFactory.java:233)
+	at org.eclipse.jgit.transport.sshd.SshdSessionFactory.getSession(SshdSessionFactory.java:1)
+	at org.eclipse.jgit.transport.SshTransport.getSession(SshTransport.java:107)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshFetchConnection.<init>(TransportGitSsh.java:254)
+	at org.eclipse.jgit.transport.TransportGitSsh.openFetch(TransportGitSsh.java:144)
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:167)
+	... 5 more
+Caused by: org.apache.sshd.common.SshException: No more authentication methods available
+	at org.apache.sshd.client.session.ClientUserAuthService.tryNext(ClientUserAuthService.java:333)
+	at org.apache.sshd.client.session.ClientUserAuthService.processUserAuth(ClientUserAuthService.java:266)
+	at org.apache.sshd.client.session.ClientUserAuthService.process(ClientUserAuthService.java:212)
+	at org.apache.sshd.common.session.helpers.AbstractSession.doHandleMessage(AbstractSession.java:466)
+	at org.apache.sshd.common.session.helpers.AbstractSession.handleMessage(AbstractSession.java:392)
+	at org.apache.sshd.common.session.helpers.AbstractSession.decode(AbstractSession.java:1304)
+	at org.apache.sshd.common.session.helpers.AbstractSession.messageReceived(AbstractSession.java:348)
+	at org.eclipse.jgit.internal.transport.sshd.JGitClientSession.messageReceived(JGitClientSession.java:191)
+	at org.apache.sshd.common.session.helpers.AbstractSessionIoHandler.messageReceived(AbstractSessionIoHandler.java:63)
+	at org.apache.sshd.common.io.nio2.Nio2Session.handleReadCycleCompletion(Nio2Session.java:368)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:346)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:343)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.lambda$completed$0(Nio2CompletionHandler.java:38)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.completed(Nio2CompletionHandler.java:37)
+	at sun.nio.ch.Invoker.invokeUnchecked(Invoker.java:126)
+	at sun.nio.ch.Invoker$2.run(Invoker.java:218)
+	at sun.nio.ch.AsynchronousChannelGroupImpl$1.run(AsynchronousChannelGroupImpl.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY org.eclipse.egit.core 4 0 2021-06-06 11:45:28.465
+!MESSAGE An exception occurred during push on URI https://gitlab.com/kumar1896/batchprocessing.git: Nothing to push.
+!STACK 0
+org.eclipse.jgit.errors.TransportException: Nothing to push.
+	at org.eclipse.jgit.transport.Transport.push(Transport.java:1323)
+	at org.eclipse.egit.core.op.PushOperation.run(PushOperation.java:191)
+	at org.eclipse.egit.ui.internal.push.PushJob.performJob(PushJob.java:86)
+	at org.eclipse.egit.ui.internal.jobs.RepositoryJob.run(RepositoryJob.java:59)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.egit.ui 4 0 2021-06-06 11:45:28.465
+!MESSAGE Can't connect to any repository: https://gitlab.com/kumar1896/batchprocessing.git (Nothing to push.)
+
+!ENTRY org.eclipse.egit.ui 4 0 2021-06-06 11:45:44.769
+!MESSAGE git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:189)
+	at org.eclipse.jgit.api.LsRemoteCommand.call(LsRemoteCommand.java:128)
+	at org.eclipse.egit.core.op.ListRemoteOperation.run(ListRemoteOperation.java:116)
+	at org.eclipse.egit.ui.internal.components.AsynchronousListOperation.run(AsynchronousListOperation.java:78)
+	at org.eclipse.egit.ui.internal.dialogs.CancelableFuture$1.run(CancelableFuture.java:280)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.jgit.errors.TransportException: git@gitlab.com:kumar1896/my-projcts.git: No more authentication methods available
+	at org.eclipse.jgit.transport.sshd.SshdSessionFactory.getSession(SshdSessionFactory.java:233)
+	at org.eclipse.jgit.transport.sshd.SshdSessionFactory.getSession(SshdSessionFactory.java:1)
+	at org.eclipse.jgit.transport.SshTransport.getSession(SshTransport.java:107)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshFetchConnection.<init>(TransportGitSsh.java:254)
+	at org.eclipse.jgit.transport.TransportGitSsh.openFetch(TransportGitSsh.java:144)
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:167)
+	... 5 more
+Caused by: org.apache.sshd.common.SshException: No more authentication methods available
+	at org.apache.sshd.client.session.ClientUserAuthService.tryNext(ClientUserAuthService.java:333)
+	at org.apache.sshd.client.session.ClientUserAuthService.processUserAuth(ClientUserAuthService.java:266)
+	at org.apache.sshd.client.session.ClientUserAuthService.process(ClientUserAuthService.java:212)
+	at org.apache.sshd.common.session.helpers.AbstractSession.doHandleMessage(AbstractSession.java:466)
+	at org.apache.sshd.common.session.helpers.AbstractSession.handleMessage(AbstractSession.java:392)
+	at org.apache.sshd.common.session.helpers.AbstractSession.decode(AbstractSession.java:1304)
+	at org.apache.sshd.common.session.helpers.AbstractSession.messageReceived(AbstractSession.java:348)
+	at org.eclipse.jgit.internal.transport.sshd.JGitClientSession.messageReceived(JGitClientSession.java:191)
+	at org.apache.sshd.common.session.helpers.AbstractSessionIoHandler.messageReceived(AbstractSessionIoHandler.java:63)
+	at org.apache.sshd.common.io.nio2.Nio2Session.handleReadCycleCompletion(Nio2Session.java:368)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:346)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:343)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.lambda$completed$0(Nio2CompletionHandler.java:38)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.completed(Nio2CompletionHandler.java:37)
+	at sun.nio.ch.Invoker.invokeUnchecked(Invoker.java:126)
+	at sun.nio.ch.Invoker$2.run(Invoker.java:218)
+	at sun.nio.ch.AsynchronousChannelGroupImpl$1.run(AsynchronousChannelGroupImpl.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY org.eclipse.egit.core 4 0 2021-06-06 11:45:58.464
+!MESSAGE An exception occurred during push on URI https://gitlab.com/kumar1896/my-projcts: Nothing to push.
+!STACK 0
+org.eclipse.jgit.errors.TransportException: Nothing to push.
+	at org.eclipse.jgit.transport.Transport.push(Transport.java:1323)
+	at org.eclipse.egit.core.op.PushOperation.run(PushOperation.java:191)
+	at org.eclipse.egit.ui.internal.push.PushJob.performJob(PushJob.java:86)
+	at org.eclipse.egit.ui.internal.jobs.RepositoryJob.run(RepositoryJob.java:59)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.egit.ui 4 0 2021-06-06 11:45:58.464
+!MESSAGE Can't connect to any repository: https://gitlab.com/kumar1896/my-projcts (Nothing to push.)
