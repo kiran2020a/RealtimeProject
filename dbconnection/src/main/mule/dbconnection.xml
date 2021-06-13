@@ -26,6 +26,7 @@ http://www.mulesoft.org/schema/mule/batch http://www.mulesoft.org/schema/mule/ba
 	<flow name="dbconnectionFlow" doc:id="a90d2f19-527c-4b2f-81ef-20c497b0dc4f" >
 		<http:listener doc:name="Listener" doc:id="c0b28cd0-0995-4818-aa08-5b42f962bcb2" config-ref="HTTP_Listener_config" path="/dbconnection"/>
 		<logger level="INFO" doc:name="Logger" doc:id="45eb813d-f482-40bd-9a23-0d394bead2b7" message="flow initiated...."/>
+		<set-payload value="#[payload]" doc:name="Set Payload" doc:id="4d9bfa31-a433-4d48-b9c0-c71de2629419" />
 		<set-variable value='#[output applicatin/json&#10;---&#10;{name: "dbconnection",&#10;transaction: "outbound",&#10;operation: "account creation",&#10;parentcorrelationId: correlationId&#10;}]' doc:name="Set Variable" doc:id="34c4a773-7a23-46ca-adf2-56501ff6218f" variableName="useCase"/>
 		<ee:transform doc:name="Transform Message" doc:id="c1a771ca-0a6f-4212-bcc1-6636670e2828" >
 			<ee:message >
