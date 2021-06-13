@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:wsc="http://www.mulesoft.org/schema/mule/wsc"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:db="http://www.mulesoft.org/schema/mule/db" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd 
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/wsc http://www.mulesoft.org/schema/mule/wsc/current/mule-wsc.xsd">
+	
+	
+  <db:config name="Database_Config" doc:name="Database Config" doc:id="cf5e5244-21f8-4922-9ac5-dea689c6dc05" >
+		<db:my-sql-connection host="${db.host}" port="${db.port}" user="${db.user}" password="${db.password}" database="integration" />
+	</db:config>
+	
+	<wsc:config name="Web_Service_Consumer_Config" doc:name="Web Service Consumer Config" doc:id="d8c3fb2a-852c-449e-bb22-df201f5bfc8c" >
+		<wsc:connection wsdlLocation="http://airindia-airlines.us-e2.cloudhub.io/airindia?wsdl" service="TicketServiceService" port="TicketServicePort" address="http://airindia-airlines.us-e2.cloudhub.io/airindia" >
+			<wsc:web-service-security actor="http://schemas.xmlsoap.org/soap/actor/next" />
+		</wsc:connection>
+	</wsc:config>
+	
+	 <http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="2270d6ec-d1cb-4029-b12d-77c39025d3f9" >
+		<http:request-connection host="${indigo.host}" port="${indigo.port}" />
+	</http:request-config>
+	<configuration-properties doc:name="Configuration properties" doc:id="6bd081e1-4f6f-4491-b7c7-50685a34bf59" file="flightsapi-${env}.yaml" />
+	
+	
+</mule>

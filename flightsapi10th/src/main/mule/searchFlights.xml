@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:db="http://www.mulesoft.org/schema/mule/db" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:wsc="http://www.mulesoft.org/schema/mule/wsc"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/wsc http://www.mulesoft.org/schema/mule/wsc/current/mule-wsc.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd">
+	<flow name="searchFlightsFlow" doc:id="d75ba911-d28a-4ae2-8d13-f27377f9d20d" >
+		<logger level="INFO" doc:name="Logger" doc:id="a0d82371-4d35-47ec-b417-7eee446fdbe2" message="searchFlightsFlow starts..............."/>
+		<scatter-gather doc:name="Scatter-Gather" doc:id="d55df9e7-d88e-42bf-8569-a1849ed1604c">
+			<route >
+				<flow-ref doc:name="airIndiaFlightsFlow" doc:id="9d9f96ca-3eb7-42db-8782-3a75258303c4" name="airIndiaFlightsFlow"/>
+			</route>
+			<route >
+				<flow-ref doc:name="indigoFlightsFlow" doc:id="ff8f21e8-a7d6-4017-b320-922dfb6eb3b0" name="indigoFlightsFlow" />
+			</route>
+		</scatter-gather>
+		<ee:transform doc:name="Transform Message" doc:id="71d74f57-9365-46d0-b49f-67555d811a4a">
+					<ee:message>
+						<ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+flatten(payload..payload)]]></ee:set-payload>
+					</ee:message>
+				</ee:transform>
+	</flow>
+</mule>

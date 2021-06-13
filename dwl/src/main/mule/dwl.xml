@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
-	xmlns="http://www.mulesoft.org/schema/mule/core"
-	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+<mule xmlns:file="http://www.mulesoft.org/schema/mule/file" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
-http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd">
 	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="84c78a5d-0acd-42ce-ba7d-94221fe5d826" >
 		<http:listener-connection host="localhost" port="8081" />
 	</http:listener-config>
@@ -53,6 +54,53 @@ output application/json
 
 now () as String {format: "uuuu-MM-dd-eeee-MMMM-YEAR"}
 ]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<ee:transform doc:name="sumofnumbers" doc:id="00ef50ab-3244-4b04-8aea-8d44e2d929a3" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+var arr = [1, -2, 3, -4, 5, -6, 7, 8, -9, 10]
+---
+[
+	Positive: sum(payload.amount filter ((item, index) ->(item>=0))),
+	Negative: sum(payload.amount filter $<0),
+	p: sum(arr filter ($>0) map ($)),
+	N: sum(arr filter ($<0) map ($))
+]]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<ee:transform doc:name="dwlOperations" doc:id="2b304bf9-f3ae-4a2c-996b-8b861d7d3ad7" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+import dw::core::Arrays
+output application/json
+---
+[a: "Murali" endsWith "li",
+empty: isBlank(""),
+a: [1, 2, 3, 4, 5]  filter($ > 2) map($),
+aa: ["a","b","c"] joinBy "-",
+a: min([1, 1000]),
+result : abs(-20) ,
+average : avg([1, 1000]),
+value : ceil(1.5),
+days: daysBetween("2016-10-01T23:57:59-03:00", "2017-10-01T23:57:59-03:00"),
+
+
+]]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<ee:transform doc:name="dwloperations" doc:id="8c6504a4-ff01-4ea3-8c0f-9a5017e5ec20" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+[[1,2,3,4,5] dw::core::Arrays::divideBy 2,
+[1, 2, 3] dw::core::Arrays::countBy (($ mod 2) == 0),
+[1,2,3,4] dw::core::Arrays::every ($ == 1),
+[1,2,3,4] dw::core::Arrays::some ($ == 1),
+[ { a: 1 }, { a: 2 }, { a: 3 } ] dw::core::Arrays::sumBy $.a
+]]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
 	</flow>

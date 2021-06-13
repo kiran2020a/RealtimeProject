@@ -11,6 +11,9 @@
     },
     "33520151-5b3c-4b24-9795-c8085552b8a3": {
       "payload": "sample_data/json_1.json"
+    },
+    "00ef50ab-3244-4b04-8aea-8d44e2d929a3": {
+      "payload": "sample_data/defaultstringtype.json"
     }
   }
 }
